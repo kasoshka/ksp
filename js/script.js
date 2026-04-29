@@ -1,7 +1,6 @@
-// Глобальный массив корзины
+
 let cart = [];
 
-// Функция перерисовки корзины (стрелочная функция)
 const renderCart = () => {
     const cartList = document.getElementById('cart-items');
     const totalSpan = document.getElementById('cart-total');
@@ -16,7 +15,6 @@ const renderCart = () => {
         return;
     }
     
-    // Перебираем товары в корзине
     let total = 0;
     cart.forEach((item, index) => {
         total += item.price;
@@ -26,23 +24,24 @@ const renderCart = () => {
         cartList.appendChild(li);
     });
     
-    // Обновляем итоговую сумму
     totalSpan.textContent = `Итого: ${total} ₽`;
     
-    // Добавляем обработчики на кнопки удаления
+
     document.querySelectorAll('.remove-item').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const index = parseInt(btn.dataset.index);
-            cart.splice(index, 1); // Удаляем товар из массива
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
             renderCart(); // Перерисовываем корзину
         });
     });
 };
 
-// Функция добавления в корзину (стрелочная функция)
+
 const addToCart = (name, price) => {
     cart.push({ name, price });
     renderCart();
+    localStorage.setItem("cart", JSON.stringify(cart));
     alert(`"${name}" добавлен в корзину!`); // Всплывающее окно
 };
 
@@ -60,7 +59,11 @@ const filterProducts = (category) => {
 
 // Ждём загрузки страницы
 document.addEventListener('DOMContentLoaded', () => {
-    // === 1. КНОПКИ ДОБАВЛЕНИЯ В КОРЗИНУ ===
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        renderCart();
+    }
     const addButtons = document.querySelectorAll('.add-to-cart');
     addButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -85,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearCartBtn.addEventListener('click', () => {
         if (cart.length > 0) {
             cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
             renderCart();
             alert('Корзина очищена!');
         } else {
@@ -100,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('Покупка прошла успешно! Спасибо за заказ.');
             cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
             renderCart();
         }
     });
