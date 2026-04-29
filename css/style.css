@@ -1,0 +1,126 @@
+body {
+    background-color: rgb(30, 30, 30);
+    color: rgb(220, 220, 220);
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+ul li {
+    display: inline;
+    margin-right: 20px;
+}
+ul li a {
+    color: rgb(255, 215, 0);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+/*cтилек для заголовков H2 */
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 400;
+    background-color: rgb(238, 220, 91); 
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* cтилек для кр опис */
+h2 + p {
+    color: rgb(144, 238, 144);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+/* стилек длоя списка характеристик */
+h2 + ul { 
+    font-family: 'Courier New', monospace; 
+    border-left: 3px solid rgb(255, 215, 0); 
+    padding: 10px 0 10px 30px;
+    margin-top: 5px;
+    background-color: rgba(0,0,0,0.3); 
+    border-radius: 0 5px 5px 0;
+}
+
+h2 + ul li {
+    display: list-item;
+    list-style-type: none;
+    list-style-image: url('../marker.png');
+    margin-bottom: 5px;
+}
+h2 + ul li::marker {
+    content: "🍿"; 
+}
+
+/* гор линия ; ссылке в тексте ; подвал*/
+hr {
+    border: 1px solid rgb(255, 215, 0);
+}
+a {
+    color: rgb(255, 215, 0);
+}
+p:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}
+
+
+p {
+    color: rgb(200, 200, 200);
+}
+
+a img {
+    border: none;
+    display: block; 
+}
+
+
+
+/* Корзина */
+.filter-btn, .add-to-cart, #clear-cart, #checkout {
+    background-color: rgb(255, 215, 0);
+    color: rgb(30, 30, 30);
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.filter-btn:hover, .add-to-cart:hover, #clear-cart:hover, #checkout:hover {
+    background-color: rgb(255, 200, 0);
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: rgba(255, 215, 0, 0.2);
+    border-radius: 3px;
+}
+
+.remove-item {
+    background-color: rgb(200, 50, 50);
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.product-item {
+    transition: all 0.3s ease;
+}

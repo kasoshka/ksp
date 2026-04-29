@@ -1,0 +1,65 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог сериалов</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<ul>
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="catalog.html">Каталог сериалов</a></li>
+</ul>
+
+<hr>
+<h2>Каталог сериалов</h2>
+
+<!-- фильтр -->
+<div style="margin-bottom: 20px;">
+    <button class="filter-btn" data-category="all">Все</button>
+    <button class="filter-btn" data-category="crime">Криминал</button>
+    <button class="filter-btn" data-category="comedy">Комедия</button>
+</div>
+
+<table>  <!--tr строчка таблы, а td ячейка-->
+    <tr> 
+        <td width="200" class="product-item" data-category="crime" data-name="Клан Сопрано" data-price="1000000">
+            <img src="soprano.jpg" width="150">
+            <p><a href="soprano.html">Клан Сопрано</a></p>
+            <p>Цена: 1000000 ₽</p>
+            <button class="add-to-cart">В корзину</button>
+        </td>
+        
+        <td width="200" class="product-item" data-category="comedy" data-name="Во все тяжкие" data-price="9999">
+            <img src="breakingbad.jpg" width="150">
+            <p><a href="breakingbad.html">Во все тяжкие</a></p>
+            <p>Цена: 9999 ₽</p>
+            <button class="add-to-cart">В корзину</button>
+        </td>
+        
+        <td width="200" class="product-item" data-category="crime" data-name="Декстер" data-price="5">
+            <img src="dexter.jpg" width="150">
+            <p><a href="dexter.html">Декстер</a></p>
+            <p>Цена: 5 ₽</p>
+            <button class="add-to-cart">В корзину</button>
+        </td>
+    </tr>
+</table>
+
+<!-- корзина -->
+<hr>
+<h3>Корзина</h3>
+<div id="cart">
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Итого: 0 ₽</p>
+    <button id="clear-cart">Очистить корзину</button>
+    <button id="checkout">Оплатить</button>
+</div>
+
+
+
+<hr>
+<p>&copy; Все права защищены</p>
+
+<script src="js/script.js"></script>
+</body>
+
+
